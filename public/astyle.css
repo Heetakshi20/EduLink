@@ -1,0 +1,103 @@
+/* Shared style for both admin and student login/signup pages */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: rgba(254, 214, 220, 0.859);;
+}
+
+/* Video background styling */
+    .video-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -1;
+      object-fit: cover;
+    }
+
+
+/* Common form container */
+form {
+  width: 450px;
+  background: #ffffff;
+  border: 2px solid #555; /* Neutral border — can customize if role-specific colors are needed */
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+/* Form heading */
+form h2 {
+  text-align: center;
+  color: #222;
+  margin-bottom: 25px;
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* Input styling */
+form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  background: #f0f0f0;
+  border: 1px solid #aaa;
+  color: #333;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+/* Submit button */
+form button {
+  width: 100%;
+  padding: 12px;
+  background: #333;
+  border: none;
+  color: #ffffff;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+form button:hover {
+  background: #000;
+}
+
+/* Link text below form */
+.link-text {
+  font-size: 14px;
+  color: #444;
+  padding: 20px;
+}
+
+.link-text a {
+  color: #cc0000;
+  text-decoration: none;
+}
+
+.link-text a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive for mobile */
+@media (max-width: 500px) {
+  form {
+    width: 90%;
+    padding: 30px 20px;
+  }
+}

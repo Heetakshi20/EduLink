@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Internship Application Form</title>
+  <style>
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      background-color: #f7fafc;
+      margin: 0;
+      padding: 0;
+    }
+
+    .form-container {
+      max-width: 500px;
+      margin: 60px auto;
+      background-color: white;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 2px 8px rgba(142, 137, 231, 0.766);
+    }
+
+    h2 {
+      text-align: center;
+      color: #000000;
+      margin-bottom: 28px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #5a67d8;
+      border: none;
+      border-radius: 5px;
+      color: #ffffff;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: cyan;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+
+<div class="form-container">
+  <h2>Internship Application</h2>
+  <form action="/apply-internship" method="POST">
+
+    
+    <label for="name">Full Name</label>
+    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+    <label for="email">Email ID</label>
+    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+    <label for="branch">Branch</label>
+    <select id="branch" name="branch" required>
+      <option value="">-- Select Branch --</option>
+      <option value="CMPN">CMPN</option>
+      <option value="IT">IT</option>
+      <option value="E&TC">ECS</option>
+      <option value="EXTC">EXTC</option>
+      <option value="MECH">MECH</option>
+      <option value="CIVIL">CIVIL</option>
+    </select>
+
+    <label for="division">Division</label>
+    <input type="text" id="division" name="division" placeholder="Enter your division (e.g., A, B)" required>
+
+    <label for="rollno">Roll Number</label>
+    <input type="text" id="rollno" name="rollno" placeholder="Enter your roll number" required>
+
+    <label for="internship">Select Internship</label>
+    <select id="internship" name="internship" required>
+      <option value="">-- Select Internship --</option>
+      <option value="Web Development">Web Development Internship</option>
+      <option value="Image Processing">Image Processing Internship</option>
+      <option value="Hardware Devices">Hardware Devices Internship</option>
+      <option value="Machine Learning">Machine Learning Internship</option>
+    </select>
+
+    <button type="submit">Submit Application</button>
+  </form>
+</div>
+<script src="navigation-control.js"></script>
+
+</body>
+</html>

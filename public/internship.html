@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Job Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            display: flex;
+            background-color: #f7fafc;
+            min-height: 100vh;
+           
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #5a67d8;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            padding-top: 20px;
+            height: 100vh;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            display: block;
+            font-size: 18px;
+        }
+
+        .sidebar a:hover {
+            background-color: #434190;
+        }
+
+        /* Main content styles */
+        .main-content {
+            flex: 1;
+            padding: 35px;
+        }
+
+        .header{
+            color: rgb(0, 0, 71);
+        }
+
+        .job-cards-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+
+        .job-card {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 2px 8px rgba(142, 137, 231, 0.766);
+            width: 550px;
+            padding: 20px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .job-details {
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        .bio {
+            color: #333;
+            font-size: 15px;
+            font-style: italic;
+            margin: 7px 0;
+        }
+
+        .job-title {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .eligibility{
+            font-size: 13px;
+            color: #333;
+            margin: 7px 0;
+        }
+
+        .company-name {
+            font-size: 14px;
+            color: #777;
+            margin-top: 5px;
+        }
+
+        .company-name .rating {
+            color: #FFD700;
+        }
+
+        .job-info {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .job-info span {
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .job-info i {
+            margin-right: 5px;
+        }
+
+        .exclusive-tag {
+            background-color: #e6eaff;
+            color: #6366F1;
+            border-radius: 15px;
+            padding: 3px 10px;
+            font-size: 12px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .footer-info {
+            font-size: 12px;
+            color: #888;
+            margin-top: 10px;
+        }
+
+        .footer-info span {
+            margin-right: 20px;
+        }
+
+        .job-info {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .job-info span {
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .job-info i {
+            margin-right: 5px;
+        }
+        
+
+        .job-logo img {
+            width: 100px;
+            height: 60px;
+            margin-left: 3px;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+            padding-right: 55px;
+            gap: 40px;
+        }
+
+        .btn {
+            background-color: #5a67d8;
+            color: white;
+            padding: 20px 30px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-family: Cambria, Cochin;
+            font-size: 18x;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 2px 8px rgba(142, 137, 231, 0.766);
+        }
+
+        .btn:hover {
+            background-color: cyan;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>EduLink</h2>
+        <a href="dashboard.html">Home</a>
+        <a href="certificate.html">Certificate</a>
+        <a href="courses.html">Courses</a>
+        <a href="job.html">Job</a>
+        <a href="#">Internship</a>
+        <a href="index.html">Logout</a>
+    </div>
+
+    <!-- Main content -->
+    <div class="main-content">
+        <div class="header">
+            <h1>Featured companies actively hiring</h1>
+        </div><br>
+
+        <!-- Company Grid -->
+        <div class="job-cards-container">
+            <div class="job-card">
+                <!-- Job Details Section 1 -->
+                <div class="job-details">
+                    <h3>Web Development Internship - SLRTCE</h3>
+                    <div class="bio">Indian multinational conglomerate company.</div>
+                    <div class="company-name">
+                        Branch - CMPN 
+                        <span class="rating">★ 4.0</span> 
+                        <span>(144 Reviews)</span>
+                    </div>
+
+                    <div class="job-info">
+                        <span><i class="fa-regular fa-calendar-days"></i>1month</span>
+                        <span><i class="fa-solid fa-location-dot"></i>Computer Science Department, 3rd Floor</span>
+                    </div>
+
+                    <div class="footer-info">
+                        <span>Posted: 14 days ago</span>
+                        <span>Openings: 4</span>
+                        <span>Applicants: 29</span>
+                    </div>
+                </div>
+
+                <!-- Company Logo and Extra Link -->
+                <div>
+                    <div class="job-logo">
+                        <img src="img/iimg3.png" style="width:130px; height: 150px;" alt="Amazon Logo">
+                    </div>
+                </div>
+            </div>
+
+            <div class="job-card">
+                <!-- Job Details Section 2 -->
+                <div class="job-details">
+                    <h3>Image Processing Internship - SLRTCE</h3>
+                    <div class="bio">Indian multinational conglomerate company.</div>
+                    <div class="company-name">
+                        Branch - IT 
+                        <span class="rating">★ 4.5</span> 
+                        <span>(124 Reviews)</span>
+                    </div>
+
+                    <div class="job-info">
+                        <span><i class="fa-regular fa-calendar-days"></i>1month</span>
+                        <span><i class="fa-solid fa-location-dot"></i>Information Technology Department, 5th Floor</span>
+                    </div>
+
+                    <div class="footer-info">
+                        <span>Posted: 14 days ago</span>
+                        <span>Openings: 4</span>
+                        <span>Applicants: 29</span>
+                    </div>
+                </div>
+
+                <!-- Company Logo and Extra Link -->
+                <div>
+                    <div class="job-logo">
+                        <img src="img/iimg4.webp" style="width:160px; height: 150px;" alt="Amazon Logo">
+                    </div>
+                </div>
+            </div>
+
+            <div class="job-card">
+                <!-- Job Details Section 3 -->
+                <div class="job-details">
+                    <h3>Hardware Devices Internship - SLRTCE</h3>
+                    <div class="bio">Indian multinational conglomerate company.</div>
+                    <div class="company-name">
+                        Branch - CMPN 
+                        <span class="rating">★ 4.2</span> 
+                        <span>(60 Reviews)</span>
+                    </div>
+
+                    <div class="job-info">
+                        <span><i class="fa-regular fa-calendar-days"></i>1month</span>
+                        <span><i class="fa-solid fa-location-dot"></i>Electronic and Computer Science Department, 4th Floor</span>
+                    </div>
+
+                    <div class="footer-info">
+                        <span>Posted: 14 days ago</span>
+                        <span>Openings: 4</span>
+                        <span>Applicants: 29</span>
+                    </div>
+                </div>
+
+                <!-- Company Logo and Extra Link -->
+                <div>
+                    <div class="job-logo">
+                        <img src="img/iimg5.webp" style="width:160px; height: 160px;" alt="Amazon Logo">
+                    </div>
+                </div>
+            </div>
+
+            <div class="job-card">
+                <!-- Job Details Section 4 -->
+                <div class="job-details">
+                    <h3>Machine Learning Internship - SLRTCE</h3>
+                    <div class="bio">Indian multinational conglomerate company.</div>
+                    <div class="company-name">
+                        Branch - CMPN 
+                        <span class="rating">★ 4.0</span> 
+                        <span>(144 Reviews)</span>
+                    </div>
+
+                    <div class="job-info">
+                        <span><i class="fa-regular fa-calendar-days"></i>1month</span>
+                        <span><i class="fa-solid fa-location-dot"></i>Electronic And Telecommunication Department, 4th Floor</span>
+                    </div>
+
+                    <div class="footer-info">
+                        <span>Posted: 14 days ago</span>
+                        <span>Openings: 4</span>
+                        <span>Applicants: 29</span>
+                    </div>
+                </div>
+
+                <!-- Company Logo and Extra Link -->
+                <div>
+                    <div class="job-logo">
+                        <img src="img/iimg6.jpg" style="width:150px; height: 140px;" alt="Amazon Logo">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="btn-container">
+            <a href="intern_apply.html" class="btn">Apply Here</a>
+            <a href="internship2.html" class="btn">Other Internship</a>
+        </div>
+
+    </div>
+    <script src="navigation-control.js"></script>
+</body>
+
+</html>

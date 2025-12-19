@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #c5eaff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 110vh;
+        }
+
+        .registration-form {
+            background-color: #ffffff;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 450px;
+        }
+
+        .registration-form h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #000000;
+        }
+
+        .registration-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .registration-form input[type="text"],
+        .registration-form input[type="email"],
+        .registration-form input[type="tel"],
+        .registration-form input[type="password"],
+        .registration-form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .registration-form input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        .registration-form .gender {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .registration-form .gender label {
+            font-weight: normal;
+        }
+
+        .registration-form input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .registration-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            color: #ffffff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .registration-form button:hover {
+            background-color: #0056b3;
+        }
+
+        .registration-form .agreement input {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="registration-form">
+        <h2>Student Registration</h2>
+
+        <form id="studentForm">
+            <div class="gender">
+                <label><b>Gender:</b></label>
+                <label><input type="radio" name="gender" value="male" required> Male</label>
+                <label><input type="radio" name="gender" value="female"> Female</label>
+                <label><input type="radio" name="gender" value="other"> Other</label>
+            </div>
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+            <label for="department">Department</label>
+            <select id="department" name="department" required>
+                <option value="">Select Department</option>
+                <option value="IT">Information Technology</option>
+                <option value="CSE">Computer Science and Engineering</option>
+                <option value="ECE">Electronics and Communication Engineering</option>
+                <option value="ME">Mechanical Engineering</option>
+                <option value="EE">Electronics and Computer Science Engineering</option>
+                <option value="CE">Civil Engineering</option>
+            </select>
+            <label for="year">Year of Study</label>
+            <select id="year" name="year" required>
+                <option value="">Select Year</option>
+                <option value="1">First Year</option>
+                <option value="2">Second Year</option>
+                <option value="3">Third Year</option>
+                <option value="4">Fourth Year</option>
+            </select>
+            <label for="division">Division</label>
+            <select id="division" name="division" required>
+                <option value="">Select Division</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+            </select>
+            <label for="roll-number">Roll Number</label>
+            <input type="text" id="roll-number" name="roll-number" placeholder="Enter your roll number" required>
+
+            <!-- Submit Button -->
+            <button type="submit">Register</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('studentForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevents actual form submission
+            alert('You have successfully registered!');
+            this.reset(); // Optional: clear form fields after submission
+        });
+    </script>
+    <script src="navigation-control.js"></script>
+
+</body>
+</html>

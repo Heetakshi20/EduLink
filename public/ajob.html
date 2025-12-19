@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+    }
+
+    body {
+        display: flex;
+        height: 100vh;
+        background-color: #fff1f1;
+        color: black;
+    }
+
+    .container {
+        display: flex;
+        width: 100%;
+    }
+
+    .sidebar {
+        width: 250px;
+        height: 800px;
+        background-color: #f1163a;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 20px;
+    }
+
+    .sidebar h2 {
+        margin-bottom: 40px;
+    }
+
+    .sidebar a {
+        text-decoration: none;
+        color: white;
+        padding: 15px 0;
+        width: 100%;
+        text-align: center;
+        font-size: 18px;
+    }
+
+    .sidebar a:hover {
+        background-color: #ee6464;
+    }    
+
+    main {
+        flex: 1;
+        background-color: #fff1f1;
+        padding: 30px;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content:end;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    /* .navbar .icons {
+        display:flex;
+        gap: 20px;
+        color: #000000;
+    } */
+
+    .cards {
+        display: flex;
+        gap: 30px;
+        margin-bottom: 30px;
+    }
+
+    .card {
+        flex: 1;
+        background-color: #f8a4a4;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    .card h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .card p {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .table-section {
+        background-color:#f8a4a4;
+        border-radius: 10px;
+        padding: 20px;
+    }
+
+    .create-invoice {
+        background-color: #5b78ff;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-bottom: 20px;
+    }
+
+    table {
+        width: 100%;
+        gap: 10px;
+        border-collapse: collapse;
+    }
+
+    table th, table td {
+        padding: 15px;
+        text-align: left;
+    }
+
+    table thead {
+        background-color:#f8a4a4;
+    }
+
+    table tbody tr {
+        border-bottom: 1px solid #000000;
+    }
+
+
+</style>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>EduLink</h2>
+            <a href="admin.html">Home</a>
+            <a href="#">Job</a>
+            <a href="ainternship.html">Internship</a>
+            <a href="index.html">Logout</a>
+        </div>
+        <!-- Main Content -->
+        <main>
+            <header class="navbar">
+                
+            </header>
+
+            <!-- Cards Section -->
+            <section class="cards">
+                <div class="card">
+                    <h3>Students</h3>
+                    <p>3,156</p>
+                   
+                </div>
+                <div class="card">
+                    <h3>Company</h3>
+                    <p>167</p>
+                    
+                </div>
+                <div class="card">
+                    <h3>Criteria</h3>
+                    <p>30</p>
+                
+                </div>
+                <div class="card">
+                    <h3>Roles</h3>
+                    <p>50+</p>
+                    
+                </div>
+            </section>
+
+            <!-- Table Section -->
+            <section class="table-section">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Student Name</th>
+                            <th>Email</th>
+                            <th>Phone no.</th>
+                            <th>CGPA</th>
+                            <th>Company</th>
+                            <th>Position</th>
+                            <th>Experience</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        window.onload = async function () {
+            const response = await fetch('/api/job-applications');
+            const data = await response.json();
+
+            const tableBody = document.querySelector("tbody");
+            tableBody.innerHTML = "";
+
+            data.forEach(app => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${app.fullName}</td>
+                <td>${app.email}</td>
+                <td>${app.phone}</td>
+                <td>${app.cgpa}</td>
+                <td>${app.company}</td>
+                <td>${app.position}</td>
+                <td>${app.experience}</td>
+            `;
+            tableBody.appendChild(row);
+            });
+        };
+    </script>
+    <script src="navigation-control.js"></script>
+
+</body>
+</html>

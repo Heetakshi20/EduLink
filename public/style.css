@@ -1,0 +1,110 @@
+:root {
+  --primary: #00b4d8;
+  --secondary: #48cae4;
+  --dark-bg: rgba(214, 248, 254, 0.8);
+  --card-bg: #ffffff;
+  --text-white: #0077b6;
+  --dark: #000;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+  font-family: 'Times New Roman', Times, serif;
+  background: var(--dark-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Video background styling */
+    .video-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -1;
+      object-fit: cover;
+    }
+
+/* Shared form container */
+form {
+  width: 450px;
+  background: var(--card-bg);
+  border: 2px solid var(--primary);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 0 30px rgba(0, 180, 216, 0.3);
+  position: relative;
+  z-index: 1;
+}
+
+/* Shared heading */
+form h2 {
+  text-align: center;
+  color: var(--primary);
+  margin-bottom: 25px;
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* Input fields */
+form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  background: var(--dark-bg);
+  border: 1px solid var(--secondary);
+  color: var(--text-white);
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+/* Button */
+form button {
+  width: 100%;
+  padding: 12px;
+  background: var(--secondary);
+  border: none;
+  color: #060130;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+form button:hover {
+  background: var(--primary);
+  color: white;
+}
+
+/* Link text */
+.link-text {
+  font-size: 14px;
+  color: var(--text-white);
+  padding-top: 20px;
+}
+
+.link-text a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.link-text a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  form {
+    width: 90%;
+    padding: 30px 20px;
+  }
+}

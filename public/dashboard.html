@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduLink Dashboard</title>
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            display: flex;
+            height: 110vh;
+            background-color: #f7fafc;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #5a67d8;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+        }
+        .sidebar h2 {
+            margin-bottom: 40px;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: white;
+            padding: 15px 0;
+            width: 100%;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .sidebar a:hover {
+            background-color: #434190;
+        }
+        
+        .main-content {
+            flex: 1;
+            padding: 15px;
+            padding-top: 30px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .profile img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        
+
+        .cards {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 70px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(142, 137, 231, 0.766);
+            width: 23%;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .data-section {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .data-item {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(142, 137, 231, 0.766);
+            width: 32%;
+        }
+
+        .data-item h3 {
+            margin-bottom: 15px;
+        }
+
+
+        .data-item .calendar {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 15px;
+        }
+
+
+        .box {
+            width: 390px;
+            height: 390px;
+            margin: -17px;
+            padding: 30px;
+            background: #ffffff;
+            border-radius: 16px;
+            overflow-y: auto;
+        }
+
+        h3 {
+            text-align: center;
+            margin-bottom: 15px;
+            color: #000000;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #1a1a1a;
+            font-weight: 500;
+        }
+
+        .input-container {
+            position: relative;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .input-container input {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            outline: none;
+        }
+
+        #clearBtn {
+            position: absolute;
+            right: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            color: #aaa;
+            cursor: pointer;
+            display: none;
+        }
+
+        .input-container input:focus + #clearBtn,
+        .input-container input:not(:placeholder-shown) + #clearBtn {
+            display: block;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #4f46e5;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+           background: #4338ca;
+        }
+
+        #recommendations {
+            margin-top: 15px;
+        }
+
+        #recommendations h3 {
+            margin-bottom: 8px;
+            color: #222;
+        }
+
+        ul {
+            padding-left: 18px;
+            list-style-type: square;
+        }
+
+        ul li {
+            margin-bottom: 4px;
+            color: #444;
+        }
+
+        p {
+            color: #999;
+            font-style: italic;
+        }
+
+        .activity-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 10px;
+            background-color: #edf2f7;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .activity-item .date-box {
+            background-color: #5a67d8;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .activity-item .details {
+            flex: 1;
+            margin-left: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sidebar">
+        <h2>EduLink</h2>
+        <a href="#">Home</a>
+        <a href="certificate.html">Certificate</a>
+        <a href="courses.html">Courses</a>
+        <a href="job.html">Job</a>
+        <a href="internship.html">Internship</a>
+        <a href="index.html">Logout</a>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <div class="header-left">
+                <div class="profile">
+                    <span id="username">Hi, </span>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="cards">
+            <div class="card">
+                <h3>Total Students</h3>
+                <p>685</p>
+            </div>
+            <div class="card">
+                <h3>Total No. of Internship</h3>
+                <p>12</p>
+            </div>
+            <div class="card">
+                <h3>Total No. of Jobs</h3>
+                <p>14</p>
+            </div>
+            <div class="card">
+                <h3>Total No. of Courses</h3>
+                <p>28</p>
+            </div>
+        </div>
+
+        <div class="data-section">
+            <div class="data-item">
+                <h3>Student Attendance</h3>
+                <div class="calendar">Feb 2024</div>
+                <canvas id="attendanceGraph"></canvas>
+            </div>
+
+            <div class="data-item">
+                <div class="box">
+                    <h3>Skill Recommender</h3>
+
+                    <label for="interestInput">Select or enter your interest:</label>
+                    <div class="input-container">
+                    <input list="interests" id="interestInput" placeholder="e.g. Web Development">
+                    <span id="clearBtn" title="Clear">&times;</span>
+                    </div>
+
+                    <datalist id="interests">
+                    <option value="Web Development">
+                    <option value="Data Science">
+                    <option value="Data Analytics">
+                    <option value="App Development">
+                    <option value="Cybersecurity">
+                    <option value="Game Development">
+                    <option value="AI/ML">
+                    <option value="UI/UX Design">
+                    <option value="Cloud Computing">
+                    <option value="DevOps">
+                    <option value="Blockchain">
+                    <option value="Embedded Systems">
+                    <option value="Database Management">
+                    <option value="Robotics">
+                    <option value="Automation / Scripting">
+                    </datalist>
+
+                    <button onclick="getRecommendations()">Get Recommendations</button>
+
+                    <div id="recommendations"></div>
+                </div>
+            </div>
+
+            <div class="data-item">
+                <h3>Upcoming Activities</h3>
+                <div id="activity-container">
+                    <div class="date-box"></div>
+                    <div class="details">
+                        <small></small>
+                    </div>
+                </div>
+                <div id="activity-container">
+                    <div class="date-box"></div>
+                    <div class="details">
+                        <small></small>
+                    </div>
+                </div>
+                <div id="activity-container">
+                    <div class="date-box"></div>
+                    <div class="details">
+                        <small></small>
+                    </div>
+                </div>
+                <div id="activity-container">
+                    <div class="date-box"></div>
+                    <div class="details">
+                        <small></small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple script to draw attendance graph using Canvas API
+        const canvas = document.getElementById('attendanceGraph');
+        const ctx = canvas.getContext('2d');
+
+        // Sample data
+        const data = [70, 50, 60, 40, 80];
+        const labels = ['Sat', 'Sun', 'Mon', 'Tue', 'Wed'];
+
+        // Draw the graph
+        function drawGraph() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            canvas.width = 400;
+            canvas.height = 200;
+
+            const barWidth = 60;
+            const barSpacing = 40;
+            const maxHeight = 150;
+
+            for (let i = 0; i < data.length; i++) {
+                const barHeight = (data[i] / 100) * maxHeight;
+                ctx.fillStyle = '#5a67d8';
+                ctx.fillRect(i * (barWidth + barSpacing), maxHeight - barHeight, barWidth, barHeight);
+                ctx.fillStyle = '#000';
+                ctx.textAlign = 'center';
+                ctx.fillText(labels[i], i * (barWidth + barSpacing) + barWidth / 2, maxHeight + 20);
+            }
+        }
+
+        drawGraph();
+
+        // Script to handle the circular progress bars
+        document.querySelectorAll('.progress-circle').forEach(circle => {
+            const percentage = parseInt(circle.getAttribute('data-percentage'), 10);
+            const angle = (percentage / 100) * 360;
+
+            if (percentage > 50) {
+                circle.querySelector('.left-half').style.transform = `rotate(180deg)`;
+                circle.querySelector('.right-half').style.transform = `rotate(${angle - 180}deg)`;
+            } else {
+                circle.querySelector('.right-half').style.transform = `rotate(${angle}deg)`;
+            }
+        });
+
+            fetch('/api/username')
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById('username').innerText = `Hi, ${data.name}`;
+        });
+
+
+        function getRecommendations() {
+        const interest = document.getElementById("interestInput").value.toLowerCase();
+        const resultDiv = document.getElementById("recommendations");
+
+        const recommendations = {
+            "web development": [
+            "HTML", "CSS", "JavaScript", "React", "Node.js", "Express", "Tailwind",
+            "Bootstrap", "TypeScript", "Next.js", "Vite", "Git", "REST APIs", "Netlify"
+            ],
+            "data science": [
+            "Python", "Pandas", "NumPy", "Matplotlib", "Seaborn", "Scikit-learn",
+            "StatsModels", "Jupyter Notebook", "SQL", "BigQuery", "Data Wrangling", "EDA"
+            ],
+            "data analytics": [
+            "Python", "Excel", "SQL", "Pandas", "Power BI", "Tableau", "NumPy",
+            "Google Sheets", "Looker", "Data Cleaning", "Business Analytics", "Data Studio"
+            ],
+            "app development": [
+            "Kotlin", "Java", "Flutter", "Dart", "React Native", "Swift", "Android Studio",
+            "Firebase", "Jetpack Compose", "MVVM Architecture", "SQLite", "Push Notifications"
+            ],
+            "cybersecurity": [
+            "Python", "Linux", "Nmap", "Wireshark", "Metasploit", "Burp Suite",
+            "Kali Linux", "Snort", "Firewalls", "Ethical Hacking", "OSINT Tools", "Cryptography"
+            ],
+            "game development": [
+            "C#", "Unity", "Unreal Engine", "Godot", "Blender", "C++", "Game Physics",
+            "Shaders", "Level Design", "Animation", "Audio Design", "Game AI"
+            ],
+            "ai/ml": [
+            "Python", "TensorFlow", "Keras", "PyTorch", "Scikit-learn", "OpenCV",
+            "XGBoost", "LightGBM", "NLP", "Computer Vision", "Model Evaluation", "Deep Learning"
+            ],
+            "ui/ux design": [
+            "Figma", "Adobe XD", "Sketch", "CSS", "JavaScript", "Tailwind",
+            "User Research", "Wireframing", "Prototyping", "Interaction Design", "Color Theory", "Responsive Design"
+            ],
+            "cloud computing": [
+            "AWS", "Azure", "Google Cloud", "Docker", "Terraform", "Kubernetes",
+            "CloudFormation", "CI/CD", "Serverless", "Cloud Storage", "Monitoring Tools", "IAM"
+            ],
+            "devops": [
+            "Docker", "Kubernetes", "Jenkins", "Git", "Ansible", "Prometheus",
+            "Grafana", "CI/CD", "AWS CodePipeline", "GitHub Actions", "Shell Scripting", "Monitoring"
+            ],
+            "blockchain": [
+            "Solidity", "Ethereum", "Web3.js", "Truffle", "Ganache", "Smart Contracts",
+            "Hardhat", "IPFS", "Metamask", "DeFi", "NFTs", "Remix IDE"
+            ],
+            "embedded systems": [
+            "C", "C++", "Arduino", "Raspberry Pi", "Embedded C", "Microcontrollers",
+            "RTOS", "I2C", "SPI", "UART", "Sensors", "PCB Design"
+            ],
+            "database management": [
+            "MySQL", "PostgreSQL", "MongoDB", "Firebase", "SQLite", "NoSQL", "SQL Server",
+            "Data Modeling", "Normalization", "ER Diagrams", "Backup & Recovery", "Stored Procedures"
+            ],
+            "robotics": [
+            "Python", "ROS", "C++", "Arduino", "OpenCV", "Gazebo", "Sensor Integration",
+            "Actuators", "Path Planning", "SLAM", "Control Systems", "Robot Operating System"
+            ],
+            "automation / scripting": [
+            "Python", "Bash", "PowerShell", "Selenium", "AutoHotkey", "Cron Jobs",
+            "Shell Scripting", "Task Scheduler", "Automation Frameworks", "Web Scraping", "APIs", "Ansible"
+            ]
+        };
+
+        const matched = recommendations[interest];
+
+        if (matched) {
+            resultDiv.innerHTML = `<h3>Recommended Tools:</h3><ul>${matched.map(item => `<li>${item}</li>`).join('')}</ul>`;
+        } else {
+            resultDiv.innerHTML = `<p>No recommendations found. Please check your input.</p>`;
+        }
+        }
+
+        document.getElementById("clearBtn").addEventListener("click", () => {
+        document.getElementById("interestInput").value = "";
+        document.getElementById("recommendations").innerHTML = "";
+        document.getElementById("interestInput").focus();
+        });
+    
+
+
+        document.addEventListener("DOMContentLoaded", () => {
+        fetch('/api/updates')
+        .then(res => res.json())
+        .then(data => {
+            const container = document.getElementById('activity-container');
+
+            if (data.length === 0) {
+            container.innerHTML = "<p>No upcoming activities yet.</p>";
+            return;
+            }
+
+            // Limit to max 4 updates (since you have 4 slots)
+            data.slice(0, 4).forEach(update => {
+            const item = document.createElement('div');
+            item.className = "activity-item";
+            item.innerHTML = `
+                <div class="date-box"></div>
+                <div class="details">
+                <small>${update.content}</small>
+                </div>
+            `;
+            container.appendChild(item);
+            });
+        })
+        .catch(err => {
+            console.error("Failed to fetch updates:", err);
+        });
+    });
+  
+    </script>
+    <script src="navigation-control.js"></script>
+</body>
+
+</html>

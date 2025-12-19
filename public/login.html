@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Video background -->
+  <video autoplay muted loop class="video-bg">
+    <source src="video/video.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+    <form action="/login" method="POST">
+        <h2 style="font-family: 'Times New Roman', Times, serif;">Student Login</h2>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <input type="hidden" name="role" value="student">
+
+        <button type="submit">Login</button>
+        <center><p class="link-text">
+        Don't have an account <a href="signup.html">Signup</a>
+        </p></center>
+    </form>
+    <script src="navigation-control.js"></script>
+</body>
+</html>

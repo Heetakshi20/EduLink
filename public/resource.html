@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources</title>
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #112743; 
+            color: white; 
+        }
+
+        /* Navbar */
+        .navbar {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: #F0F4FD;
+        }
+
+        .navbar .logo {
+            font-size: 30px;
+            font-weight: bold;
+            color: #1E3A5F;
+        }
+
+        .navbar .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .navbar .nav-links li a {
+            color: #1E3A5F;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .navbar .nav-links li a:hover {
+            color: #007BFF;
+        }
+
+        ._container {
+            display: flex;
+            align-items: center;
+        }
+
+        .row {
+            grid-template-columns: repeat(4, 1fr);
+            gap: 90px 70px;
+        }
+
+        .btn {
+            display: inline-block;
+            border: none;
+            background-color: transparent;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .btn-3 {
+            color: #000;
+            padding: 12px 32px;
+            font-weight: 500;
+            font-size: 18px;
+            text-decoration: none;
+            border-radius: 30px;
+            background: #c4d2ff;
+        }
+
+        .btn-3:hover {
+            color: #fff;
+            background-color: #007BFF;
+        }
+
+        .resource-section {
+            border: 2px solid #5DA9E9;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 8px;
+        }
+
+        .resource-container {
+            font-family: 'Times New Roman', Times, serif;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .resource-card {
+            background-color: #1B2735;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 10px;
+            text-align: center;
+            width: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .resource-card img {
+            width: 200px;
+            height: 270px;
+            margin: 0 auto;
+        }
+
+        .resource-card button {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #E0E9FA;
+            color: #0A1626;
+            padding: 13px 30px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            align-self: center;
+        }
+
+        .resource-card button:hover {
+            background-color: #5DA9E9;
+            color: white;
+        }
+
+        footer {
+            background-color: #0A1626;
+            color: #E0E9FA;
+            text-align: center;
+            padding: 20px;
+            border-top: 2px solid #5DA9E9;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar (from EduLink - Learning Platform) -->
+    <nav class="navbar">
+        <div class="logo"><span style="color: #007BFF;">E</span>du<span style="color: #007BFF;">L</span>ink</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Resources</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Section 1: Languages -->
+    <section class="resource-section">
+        <h1>Languages</h1>
+        <div class="resource-container">
+            <div class="resource-card">
+                <img src="img/rimg1.png" alt="Java Book">
+                <a href="https://www.sietk.org/downloads/javabook.pdf" download="java-book.pdf">
+                    <button><h4>Download</h4></button>
+                </a>
+            </div>
+            <div class="resource-card">
+                <img src="img/rimg2.png" alt="Python Book">
+                <a href="https://muzzaffarpur.kvs.ac.in/sites/default/files/Python-ProgrammingBook.pdf" download="python-book.pdf">
+                    <button><h4>Download</h4></button>
+                </a>
+            </div>
+            <div class="resource-card">
+                <img src="img/rimg3.png" alt="JavaScript Book">
+                <a href="https://www.gurukultti.org/admin/notice/javascript.pdf" download="javascript-book.pdf">
+                    <button><h4>Download</h4></button>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Database -->
+    <section class="resource-section">
+        <h1>Database</h1>
+        <div class="resource-container">
+            <div class="resource-card">
+                <img src="img/rimg4.png" alt="MySQL Book">
+                <a href="http://160592857366.free.fr/joe/ebooks/ShareData/Learning%20MySQL.pdf" download="mysql-book.pdf">
+                    <button><h4>Download</h4></button>
+                </a>
+            </div>
+            <div class="resource-card">
+                <img src="img/rimg5.png" alt="MongoDB Book">
+                <a href="https://usuaris.tinet.cat/bertolin/pdfs/mongodb_%20the%20definitive%20guide%20-%20kristina%20chodorow_1401.pdf" download="mongodb-book.pdf">
+                    <button><h4>Download</h4></button>
+                </a>
+            </div>
+            <div class="resource-card">
+                <img src="img/rimg6.png" alt="PostgreSQL Book">
+                <a href="https://theswissbay.ch/pdf/Gentoomen%20Library/Databases/postgresql/Beginning%20Databases%20With%20PostreSQL%20-%20From%20Novice%20To%20Professional%2C%202nd%20Ed%202005.pdf" download="postgresql-book.pdf">
+                    <button><h4>Download</h4></button>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Theory -->
+    <section class="resource-section">
+        <h1>Theory</h1>
+        <div class="resource-container">
+            <div class="resource-card">
+                <img src="img/rimg7.png" alt="Data Structures Book">
+                <a href="https://www.mta.ca/~rrosebru/oldcourse/263114/Dsa.pdf" download="data-structures-book.pdf">
+                    <button><h4>Download</h4></button>
+                </a>
+            </div>
+            <div class="resource-card">
+                <img src="img/rimg8.png" alt="Data Science Book">
+                <a href="C:\Users\ACER\Downloads\fa4d1dd28c8a6f3a3fea55c83e3c9577 (2).pdf" download="data science-book.pdf">
+                    <button><h4>Download</h4></button>
+                </a>
+            </div>
+            <div class="resource-card">
+                <img src="img/rimg9.png" alt="Operating Systems Book">
+                <a href="https://os.ecci.ucr.ac.cr/slides/Abraham-Silberschatz-Operating-System-Concepts-10th-2018.pdf" download="operating-systems-book.pdf">
+                    <button><h4>Download</h4></button>
+                </a>
+            </div>
+        </div>
+    </section>
+    <script src="navigation-control.js"></script>
+
+</body>
+</html>

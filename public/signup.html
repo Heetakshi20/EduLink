@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Signup</title>
+  <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Video background -->
+  <video autoplay muted loop class="video-bg">
+    <source src="video/video.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="container">
+    
+    <form action="/signup" method="POST">
+      <h2 style="font-family: 'Times New Roman', Times, serif;">Student Signup</h2>
+      <input type="text" name="name" placeholder="Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <input type="hidden" name="role" value="student">
+      
+      <button type="submit">Signup</button>
+      <center><p class="link-text">
+        Already have an account? <a href="login.html">Login</a>
+      </p></center>
+    </form>
+    
+  </div>
+  <script src="navigation-control.js"></script>
+</body>
+</html>

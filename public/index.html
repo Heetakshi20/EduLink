@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduLink - Learning Platform</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+
+    <!-- Font Awesome CDN for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #0B112A;
+            color: white;
+            margin: 0;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: #F0F4FD;
+        }
+
+        .navbar .logo {
+            font-size: 30px;
+            font-weight: bold;
+            color: #1E3A5F;
+        }
+
+        .navbar .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .navbar .nav-links li a {
+            color: #1E3A5F;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .navbar .nav-links li a:hover {
+            color: #000000;
+            background-color: #1e3a5f49;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        ._container {
+            display: flex;
+            align-items: center;
+        }
+
+        .row {
+            display: flex;
+            gap: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            border: none;
+            background-color: transparent;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .btn-3 {
+            color: #fff;
+            padding: 12px 32px;
+            font-weight: 800;
+            font-size: 15px;
+            text-decoration: none;
+            border-radius: 30px;
+            background: #0056b3;
+        }
+
+        .btn-3:hover {
+            color: #000;
+            background-color: #007BFF;
+        }
+
+        /* Home Content */
+        .home-content {
+            position: absolute;
+            top: 57%;
+            left: 22%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+
+        .home-content h1 {
+            font-size: 50px;
+            margin-bottom: 20px;
+            color: #FFFFFF;
+        }
+
+        /* Home */
+        .b_container {
+            height: 730px;
+            width: 100%;
+            background-color: #fff;
+        }
+
+        .b_container img {
+            height: 730px;
+            width: 100%;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .container1 {
+            padding: 0px 0;
+            background-color: #F0F4FD;
+        }
+
+        /* About Us */
+        .about-us {
+            background-color: #F0F4FD;
+            color: #1E3A5F;
+            padding: 100px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .about-us h2 {
+            font-size: 42px;
+            font-weight: 700;
+            color: #1E3A5F;
+            margin-bottom: 20px;
+        }
+
+        .about-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .about-image {
+            flex: 1;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .about-text {
+            flex: 1;
+            padding-left: 50px;
+        }
+
+        .about-text h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #1E3A5F;
+        }
+
+        .about-text p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #666666;
+            max-width: 600px;
+        }
+
+        .about-features {
+            list-style: none;
+            padding: 0;
+        }
+
+        .about-features li {
+            font-size: 18px;
+            color: #333333;
+            margin-bottom: 15px;
+        }
+
+        .about-features li i {
+            color: #007BFF;
+            margin-right: 10px;
+        }
+
+        /* Why Choose Us Section */
+        .why-choose-us {
+            background-color: #0B112A; /* Dark background */
+            color: #FFFFFF; /* White text */
+            padding: 80px 50px;
+            margin-top: 20px;
+            text-align: center;
+            transition: transform 1s ease-in-out;
+        }
+
+        .why-choose-us h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #007BFF; /* Bright blue color */
+        }
+
+        .why-choose-us p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            color: #CCCCCC; /* Light grey text */
+        }
+
+        /* Layout for Why Choose Us */
+        .why-layout {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .why-left, .why-right {
+            display: flex;
+            flex-direction: column;
+            gap: 30px; /* Gap between the cards */
+        }
+
+        .why-center {
+            flex: 0 0 300px; /* Center image fixed size */
+        }
+
+        .why-center img {
+            width: 550px;
+            height: 350px;
+        }
+
+        /* Individual Why Item Card */
+        .why-item {
+            background-color: #1E3A5F; /* Dark blue card background */
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 250px;
+        }
+
+        .why-item h3 {
+            font-size: 24px;
+            margin-top: 15px;
+            color: #FFFFFF;
+        }
+
+        .why-item p {
+            font-size: 16px;
+            margin-top: 10px;
+            color: #CCCCCC;
+        }
+
+        .why-item i {
+            font-size: 40px;
+            color: #007BFF; /* Icon color */
+        }
+
+        /* Responsive Design for Smaller Screens */
+        @media (max-width: 768px) {
+            .why-layout {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .why-left, .why-right {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .why-center {
+                margin: 40px 0; /* Margin for the image to add space in mobile view */
+            }
+
+            .why-item {
+                max-width: 100%;
+            }
+        }
+
+
+        /* Footer Styling */
+        footer {
+            background-color: #0B112A; /* Dark background */
+            color: #fff;
+            padding: 70px 0;
+            text-align: center;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-about,
+        .footer-links,
+        .footer-contact,
+        .footer-social {
+            flex: 1 1 200px;
+            margin: 15px;
+        }
+
+        .footer-about h3, 
+        .footer-links h3, 
+        .footer-contact h3, 
+        .footer-social h3 {
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .footer-about p,
+        .footer-contact p {
+            color: #ffffff;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links ul li {
+            margin: 10px 0;
+        }
+
+        .footer-links ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links ul li a:hover {
+            color: #007BFF;
+        }
+
+        .footer-social .social-icons {
+            margin-top: 15px;
+        }
+
+        .footer-social .social-icons a {
+            color: #ffffff;
+            font-size: 20px;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-social .social-icons a:hover {
+            color: #007BFF;
+        }
+
+        /* Responsive Styling */
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                text-align: left;
+            }
+
+            .footer-about, .footer-links, .footer-contact, .footer-social {
+                margin: 20px 0;
+            }
+        }
+        /* Slide-up and Slide-down Classes for Smooth Transition */
+        .slide-up {
+            transform: translateY(-100vh); /* Move the about section up */
+        }
+
+        .slide-down {
+            transform: translateY(0); /* Bring it back down */
+        }
+        /* Adjust section spacing */
+        section {
+            padding: 120px 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" >
+        <div class="logo"><span style="color: #007BFF;">E</span>du<span style="color: #007BFF;">L</span>ink</div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="resource.html">Resources</a></li>
+            <li><a href="alogin.html">Admin</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+
+        <div class="_container">
+            <div class="row">
+                <!-- <a href="Sregister.html" class="btn btn-3">Register Now</a> -->
+                <a href="login.html" class="btn btn-3">Student Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section with Text and Buttons -->
+    <div class="home-content">
+        <h1>Single Platform <br> For All Your <br> <span style="color: #007BFF;">Learning</span> Needs</h1>
+    </div>
+
+    <!-- Home -->
+    <div class="b_container" id="home">
+        <img src="img/bimg.png" alt="Banner Image">
+    </div>
+
+    <!-- About Us Section -->
+    <div class="container1" id="about">
+        <div class="about-us">
+            <div class="about-container">
+                <!-- Left Image Section -->
+                <div class="about-image">
+                    <img src="img/about.png" alt="About Us Image">
+                </div>
+
+                <!-- Right Text Section -->
+                <div class="about-text">
+                    <h2>Welcome to EduLink</h2>
+                    <p>
+                        At EduLink, we provide top-notch online education with skilled instructors from all over the world. Our platform
+                        is designed to make learning accessible and convenient for everyone.
+                    </p>
+                    <p>
+                        Whether you want to learn new skills, earn international certificates, or access expert guidance, EduLink is the
+                        perfect place to start your learning journey.
+                    </p>
+
+                    <ul class="about-features">
+                        <li><i class="fas fa-arrow-right"></i> Perfect Guidance</li>
+                        <li><i class="fas fa-arrow-right"></i> Certificate</li>
+                        <li><i class="fas fa-arrow-right"></i> Online Courses</li>
+                        <li><i class="fas fa-arrow-right"></i> Various Internships</li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Why Choose Us Section -->
+        <section class="why-choose-us" id="why-choose-us">
+            <div class="why-container">
+                <h2>Why Choose Us</h2>
+                <p>
+                    EduLink offers world-class experiences to help you gain valuable skills. Here’s why thousands of learners 
+                    choose us:
+                </p>
+        
+                <div class="why-layout">
+                    <!-- Left Side Cards -->
+                    <div class="why-left">
+                        <div class="why-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <h3>Expert Gudiance</h3>
+                            <p>Learn from top resources which are published by the experts.</p>
+                        </div>
+        
+                        <div class="why-item">
+                            <i class="fas fa-globe"></i>
+                            <h3>Global Certification</h3>
+                            <p>Get recognized with our certified programs.</p>
+                        </div>
+                    </div>
+        
+                    <!-- Center Image -->
+                    <div class="why-center">
+                        <img src="img/aaa.jpg" alt="Why Choose Us Image">
+                    </div>
+        
+                    <!-- Right Side Cards -->
+                    <div class="why-right">
+                        <div class="why-item">
+                            <i class="fas fa-book"></i>
+                            <h3>Wide Range of Courses</h3>
+                            <p>Choose from a variety of courses to suit your learning needs.</p>
+                        </div>
+        
+                        <div class="why-item">
+                            <i class="fas fa-clock"></i>
+                            <h3>Flexible Learning</h3>
+                            <p>Learn at your own pace with flexible schedules.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        
+
+        <!-- Footer Section -->
+        <footer>
+            <div class="footer-container">
+                <!-- Footer About Section -->
+                <div class="footer-about">
+                    <h3>About EduLink</h3>
+                    <p>
+                        EduLink is a comprehensive online learning platform dedicated to providing quality resources for students and professionals. Join us and enhance your skills.
+                    </p>
+                </div>
+
+                <!-- Footer Links -->
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#our-team">Our Team</a></li>
+                        <li><a href="resource.html">Resources</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Footer Contact Info -->
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p>Email: info@edulink.com</p>
+                    <p>Phone: +1 123-456-7890</p>
+                    <p>Address: 123 Learning Ave, Knowledge City, World</p>
+                </div>
+
+                <!-- Footer Social Media -->
+                <div class="footer-social">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.github.com" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div><br>
+
+            <!-- Footer Bottom Section -->
+            <div class="footer-bottom">
+                <p>&copy; 2024 EduLink. All Rights Reserved.</p>
+            </div>
+        </footer>
+    </div>
+    <script src="navigation-control.js"></script>
+</body>
+</html>

@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            display: flex;
+            background-color: #f7fafc;
+            min-height: 100vh;
+
+           
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #5a67d8;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            padding-top: 20px;
+            height: 150vh;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            display: block;
+            font-size: 18px;
+        }
+
+        .sidebar a:hover {
+            background-color: #434190;
+        }
+
+        /* Main content styles */
+        .main-content {
+            flex: 1;
+            padding: 35px;
+        }
+
+        .header{
+            color: rgb(0, 0, 71);
+        }
+
+        .job-cards-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+
+        .job-card {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 2px 8px rgba(142, 137, 231, 0.766);
+            width: 550px;
+            padding: 20px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .job-details {
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        .bio {
+            color: #333;
+            font-size: 16px;
+            font-style: italic;
+            margin: 7px 0;
+        }
+
+        .job-title {
+            font-size: 16px;
+            /* font-weight: bold; */
+            color: #333;
+        }
+
+        .eligibility{
+            font-size: 13px;
+            color: #333;
+            margin: 7px 0;
+        }
+
+        .company-name {
+            font-size: 14px;
+            color: #777;
+            margin-top: 5px;
+        }
+
+        .company-name .rating {
+            color: #FFD700;
+        }
+
+        .job-info {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .job-info span {
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .job-info i {
+            margin-right: 5px;
+        }
+
+        .exclusive-tag {
+            background-color: #e6eaff;
+            color: #6366F1;
+            border-radius: 15px;
+            padding: 3px 10px;
+            font-size: 12px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .footer-info {
+            font-size: 12px;
+            color: #888;
+            margin-top: 10px;
+        }
+
+        .footer-info span {
+            margin-right: 20px;
+        }
+
+        
+
+        .job-logo img {
+            width: 100px;
+            height: 60px;
+            margin-left: 3px;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px;
+            padding-right: 55px; /* push it slightly down */
+        }
+
+        .btn {
+            background-color: #5a67d8;
+            color: white;
+            padding: 20px 30px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-family: Cambria, Cochin;
+            font-size: 18x;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 2px 8px rgba(142, 137, 231, 0.766);
+        }
+
+        .btn:hover {
+            background-color: cyan;
+            color: black;
+        }
+
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>EduLink</h2>
+        <a href="dashboard.html">Home</a>
+        <a href="certificate.html">Certificate</a>
+        <a href="courses.html">Courses</a>
+        <a href="#">Job</a>
+        <a href="internship.html">Internship</a>
+        <a href="index.html">Logout</a>
+    </div>
+
+    <!-- Main content -->
+    <div class="main-content">
+        <div class="header">
+            <h1>Featured companies actively hiring</h1>
+        </div><br>
+
+        <!-- Company Grid -->
+        <div class="job-cards-container">
+            <div class="job-card">
+                <!-- Job Details Section 1 -->
+                <div class="job-details">
+                    <h3>Amazon</h3>
+                    <div class="bio">Indian multinational conglomerate company.</div>
+                    <div class="job-title">Territory Sales Manager - Mumbai</div>
+                    <div class="eligibility">Eligibility: Avg CGPA 8</div>
+                    <div class="company-name">
+                        Amazon 
+                        <span class="rating">★ 4.2</span> 
+                        <span>(12486 Reviews)</span>
+                    </div>
+
+                    <div class="job-info">
+                        <span><i class="fa-regular fa-calendar-days"></i>5 month - 12 month</span>
+                        <span><i class="fa-solid fa-indian-rupee-sign"></i> Not Disclosed</span>
+                        <span><i class="fa-solid fa-location-dot"></i> Mumbai, Nagpur</span>
+                    </div>
+
+                    <div class="footer-info">
+                        <span>Posted: 14 days ago</span>
+                        <span>Openings: 4</span>
+                        <span>Applicants: 29</span>
+                    </div>
+                </div>
+
+                <!-- Company Logo and Extra Link -->
+                <div>
+                    <div class="job-logo">
+                        <img src="img/img2.jfif" alt="Amazon Logo">
+                    </div>
+                </div>
+            </div>
+
+            <div class="job-card">
+                <!-- Job Details Section 2 -->
+                <div class="job-details">
+                    <h3>Infosys</h3>
+                    <div class="bio">Leading in next-generation digital services and consulting.</div>
+                    <div class="job-title">Territory Sales Manager - Mumbai</div>
+                    <div class="eligibility">Eligibility: Avg CGPA 7.5</div>
+                    <div class="company-name">
+                        Infosys 
+                        <span class="rating">★ 4</span> 
+                        <span>(1358 Reviews)</span>
+                    </div>
+
+                    <div class="job-info">
+                        <span><i class="fa-regular fa-calendar-days"></i>6 month - 10 month</span>
+                        <span><i class="fa-solid fa-indian-rupee-sign"></i> Not Disclosed</span>
+                        <span><i class="fa-solid fa-location-dot"></i> Mumbai, Pune</span>
+                    </div>
+
+                    <div class="footer-info">
+                        <span>Posted: 9 days ago</span>
+                        <span>Openings: 4</span>
+                        <span>Applicants: 44</span>
+                    </div>
+                </div>
+
+                <!-- Company Logo and Extra Link -->
+                <div>
+                    <div class="job-logo">
+                        <img src="img/img4.png" alt="Infosys Logo">
+                    </div>
+                </div>
+            </div>
+
+            <div class="job-card">
+                <!-- Job Details Section 3 -->
+                <div class="job-details">
+                    <h3>Capgemini</h3>
+                    <div class="bio">We are a global leader in engineering & sciences.</div>
+                    <div class="job-title">Territory Sales Manager - Mumbai</div>
+                    <div class="eligibility">Eligibility: Avg CGPA 7</div>
+                    <div class="company-name">
+                        Capgemini 
+                        <span class="rating">★ 4</span> 
+                        <span>(634 Reviews)</span>
+                    </div>
+
+                    <div class="job-info">
+                        <span><i class="fa-regular fa-calendar-days"></i>1 year - 3 year</span>
+                        <span><i class="fa-solid fa-indian-rupee-sign"></i> Not Disclosed</span>
+                        <span><i class="fa-solid fa-location-dot"></i> Nagpur, Pune</span>
+                    </div>
+
+                    <div class="footer-info">
+                        <span>Posted: 10 days ago</span>
+                        <span>Openings: 7</span>
+                        <span>Applicants: 30</span>
+                    </div>
+                </div>
+
+                <!-- Company Logo and Extra Link -->
+                <div>
+                    <div class="job-logo">
+                        <img src="img/img5.png" style="width: 150px;" alt="Capgemini Logo">
+                    </div>
+                </div>
+            </div>
+
+            <div class="job-card">
+                <!-- Job Details Section 4 -->
+                <div class="job-details">
+                    <h3>Reliance Industries</h3>
+                    <div class="bio">Indian multinational conglomerate company.</div>
+                    <div class="job-title">Territory Sales Manager - Mumbai</div>
+                    <div class="eligibility">Eligibility: Avg CGPA 7</div>
+                    <div class="company-name">
+                        Reliance Industries 
+                        <span class="rating">★ 3.9</span> 
+                        <span>(5876 Reviews)</span>
+                    </div>
+
+                    <div class="job-info">
+                        <span><i class="fa-regular fa-calendar-days"></i> 1 year - 6 year</span>
+                        <span><i class="fa-solid fa-indian-rupee-sign"></i> Not Disclosed</span>
+                        <span><i class="fa-solid fa-location-dot"></i> Mumbai, Pune</span>
+                    </div>
+
+                    <div class="footer-info">
+                        <span>Posted: 11 days ago</span>
+                        <span>Openings: 6</span>
+                        <span>Applicants: 24</span>
+                    </div>
+
+                </div>
+
+                <!-- Company Logo and Extra Link -->
+                <div>
+                    <div class="job-logo">
+                        <img src="img/img6.png" alt="Reliance Industries Logo">
+                    </div>
+                </div>
+            </div>
+
+            <div class="job-card">
+                <!-- Job Details Section 5 -->
+                <div class="job-details">
+                    <h3>J.P. Morgan</h3>
+                    <div class="bio">A global leader in IT services, consulting, and business solutions.</div>
+                    <div class="job-title">Territory Sales Manager - Mumbai</div>
+                    <div class="eligibility">Eligibility: Avg CGPA 7</div>
+                    <div class="company-name">
+                        J.P. Morgan 
+                        <span class="rating">★ 4.2</span> 
+                        <span>(2641 Reviews)</span>
+                    </div>
+
+                    <div class="job-info">
+                        <span><i class="fa-regular fa-calendar-days"></i>8 month - 3 year</span>
+                        <span><i class="fa-solid fa-indian-rupee-sign"></i> Not Disclosed</span>
+                        <span><i class="fa-solid fa-location-dot"></i> Mumbai, Nagpur</span>
+                    </div>
+
+                    <div class="footer-info">
+                        <span>Posted: 14 days ago</span>
+                        <span>Openings: 5</span>
+                        <span>Applicants: 23</span>
+                    </div>
+                </div>
+
+                <!-- Company Logo and Extra Link -->
+                <div>
+                    <div class="job-logo">
+                        <img src="img/img7.jfif" style="width: 120px;" alt="J.P. Morgan Logo">
+                    </div>
+                </div>
+            </div>
+
+            <div class="job-card">
+                <!-- Job Details Section 6 -->
+                <div class="job-details">
+                    <h3>Tata</h3>
+                    <div class="bio">Leading in next-generation digital services and consulting.</div>
+                    <div class="job-title">Territory Sales Manager - Mumbai</div>
+                    <div class="eligibility">Eligibility: Avg CGPA 7</div>
+                    <div class="company-name">
+                        Tata 
+                        <span class="rating">★ 4</span> 
+                        <span>(4216 Reviews)</span>
+                    </div>
+
+                    <div class="job-info">
+                        <span><i class="fa-regular fa-calendar-days"></i> 1 year - 5 year</span>
+                        <span><i class="fa-solid fa-indian-rupee-sign"></i> Not Disclosed</span>
+                        <span><i class="fa-solid fa-location-dot"></i> Mumbai, Nashik</span>
+                    </div>
+
+                    <div class="footer-info">
+                        <span>Posted: 13 days ago</span>
+                        <span>Openings: 7</span>
+                        <span>Applicants: 20</span>
+                    </div>
+                </div>
+
+                <!-- Company Logo and Extra Link -->
+                <div>
+                    <div class="job-logo">
+                        <img src="img/img8.png" alt="Tata Logo">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="btn-container">
+            <a href="job_apply.html" class="btn">Apply Here</a>
+        </div>
+
+    </div>
+    <script src="navigation-control.js"></script>
+</body>
+
+</html>
